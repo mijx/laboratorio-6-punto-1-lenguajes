@@ -128,13 +128,12 @@ public class Main {
                         }
 
                         // Imprimir la salida
-                        System.out.println("RECIBO DE EXAMEN");
-                        System.out.println("Examen: ");
-
-                        System.out.println();
-
-
-
+                        System.out.println("RECIBO");
+                        System.out.println("Nombre: "+examen.getPaciente().getNombre());
+                        System.out.println("Cédula: "+examen.getPaciente().getCedula());
+                        System.out.println("Edad: "+examen.getPaciente().getEdad());
+                        System.out.println("Examen: "+examen.getTipo());
+                        System.out.println("Valor a pagar: $"+examen.precioAPagar());
 
                     default:
                         System.out.println("Opción no válida. Intente de nuevo.");
@@ -145,8 +144,6 @@ public class Main {
                 System.out.println("Error en la entrada o salida de datos.");
             } catch (Exception e) {
                 System.out.println("Error general.");
-            } catch (NullPointerException e) {
-                System.out.println("Excepción de puntero nulo.");
             }
         } while (!exit);
 
