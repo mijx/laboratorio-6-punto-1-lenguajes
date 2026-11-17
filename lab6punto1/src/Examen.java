@@ -10,7 +10,8 @@ public class Examen {
     }
 
     public double calcularDescuento(){
-        double porcentaje, descuento;
+        double porcentaje; // Porcentaje de descuento
+        double descuento; // Monto del descuento
         switch (paciente.getSeguro().toUpperCase()) {
             case "A":
                 porcentaje = 0.5;  // El afiliado paga el 50% del examen
