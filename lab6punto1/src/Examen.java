@@ -7,6 +7,22 @@ public abstract class Examen {
         this.paciente = paciente;
     }
 
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public Afiliado getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Afiliado paciente) {
+        this.paciente = paciente;
+    }
+
     public double porcentajePago(){
         double porcentaje; // Porcentaje de descuento
         switch (paciente.getSeguro().toUpperCase()) {
