@@ -20,6 +20,12 @@ public class Main {
         String nombre, cedula, seguro;
         int edad;
         Afiliado nuevoAfiliado;
+        // Variables de los examenes
+        String tipo;
+        double precioAPagar;
+        Examen examen = null;
+        int indiceAfiliado;
+
         do {
             try {
                 //Menu de opciones
@@ -36,7 +42,7 @@ public class Main {
 
                         // Leer los datos del afiliado
                         System.out.print("Ingrese la cédula: ");
-                        cedula = br.readLine();
+                        cedula = br.readLine().trim();
 
                         // Revisar si el afiliado ya existe
                         // Solo compara la cédula porque es el identificador único de las personas
@@ -53,7 +59,7 @@ public class Main {
 
                         // Continuar leyendo los datos del afiliado
                         System.out.print("Ingrese el nombre: ");
-                        nombre = br.readLine();
+                        nombre = br.readLine().trim();
                         System.out.print("Ingrese la edad: ");
                         edad = Integer.parseInt(br.readLine());
                         System.out.print("Ingrese el tipo de seguro (A, A+, B o B+): ");
@@ -70,6 +76,61 @@ public class Main {
                         afiliados.add(nuevoAfiliado);
                         System.out.println("Registro exitoso.");
                         break;
+                    case 2: // Calcular el costo de un examen
+
+                        // Leer la cédula del afiliado y validar que esté en el sistema
+                        System.out.print("Ingrese la cédula del afiliado: ");
+                        cedula = br.readLine().trim();
+                        indiceAfiliado = -1;
+                        for (int i=0; i< afiliados.size();i++){
+                            Afiliado afiliado = afiliados.get(i);
+                            if(cedula.equalsIgnoreCase(afiliado.getCedula())){
+                                indiceAfiliado = i;
+                                break; // Salir del ciclo for
+                            }
+                        }
+                        if(indiceAfiliado==-1){
+                            System.out.println("Error: el afiliado no está en el sistema.");
+                            break; // Salir de la ejecución de case 2
+                        }
+
+                        // Menú de examenes
+                        System.out.println("\nExámenes disponibles:");
+                        //Menu de opciones
+                        System.out.println("\t1. Exámenes Generales");
+                        System.out.println("\t2. Prueba de Embarazo");
+                        System.out.println("\t3. Anti-Doping");
+                        System.out.println("\t4. Hemoglobina Glicosilada");
+                        System.out.print("Selección: ");
+                        opcion = Integer.parseInt(br.readLine());
+                        System.out.println();
+
+                        switch(opcion){
+                            case 1:
+                                examen = new ExamenGeneral(afiliados.get(indiceAfiliado));
+                                break;
+                            case 2:
+                                examen = new PruebaEmbarazo(afiliados.get(indiceAfiliado));
+                                break;
+                            case 3:
+                                examen = new AntiDoping(afiliados.get(indiceAfiliado));
+                                break;
+                            case 4:
+                                examen = new Hemoglobina(afiliados.get(indiceAfiliado));
+                                break;
+                            default:
+                                System.out.println("Error: Opción no válida. Intente de nuevo.");
+                                opcion = -1;
+                        }
+
+                        if(opcion == -1){
+                            break; // Salir de la ejecución de case 2
+                        }
+
+                        
+
+
+
                     default:
                         System.out.println("Opción no válida. Intente de nuevo.");
                 }
@@ -79,6 +140,8 @@ public class Main {
                 System.out.println("Error en la entrada o salida de datos.");
             } catch (Exception e) {
                 System.out.println("Error general.");
+            } catch (NullPointerException e) {
+                System.out.println("Excepción de puntero nulo.");
             }
         } while (!exit);
 

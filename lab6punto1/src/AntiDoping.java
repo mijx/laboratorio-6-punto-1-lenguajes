@@ -1,6 +1,6 @@
 public class AntiDoping extends Examen{
 
-    public AntiDoping(String tipo, Afiliado paciente) {
+    public AntiDoping(Afiliado paciente) {
         super("Anti-Doping", paciente);
     }
 

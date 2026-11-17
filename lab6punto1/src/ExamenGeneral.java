@@ -1,5 +1,5 @@
 public class ExamenGeneral extends Examen{
-    public ExamenGeneral(String tipo, Afiliado paciente) {
+    public ExamenGeneral(Afiliado paciente) {
         super("Examenes Generales", paciente);
     }
 

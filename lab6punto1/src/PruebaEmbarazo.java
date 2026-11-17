@@ -1,5 +1,5 @@
 public class PruebaEmbarazo extends Examen{
-    public PruebaEmbarazo(String tipo, Afiliado paciente) {
+    public PruebaEmbarazo( Afiliado paciente) {
         super("Prueba de Embarazo", paciente);
     }
 

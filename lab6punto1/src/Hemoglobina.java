@@ -1,5 +1,5 @@
 public class Hemoglobina extends Examen{
-    public Hemoglobina(String tipo, Afiliado paciente) {
+    public Hemoglobina(Afiliado paciente) {
         super("Hemoglobina Glicosilada", paciente);
     }
 
