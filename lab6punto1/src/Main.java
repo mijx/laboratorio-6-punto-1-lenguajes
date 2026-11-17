@@ -90,7 +90,7 @@ public class Main {
                             }
                         }
                         if(indiceAfiliado==-1){
-                            System.out.println("Error: el afiliado no está en el sistema.");
+                            System.out.println("Error: en el sistema no existe un afiliado con dicho número de cédulaa.");
                             break; // Salir de la ejecución de case 2
                         }
 
@@ -127,6 +127,11 @@ public class Main {
                             break; // Salir de la ejecución de case 2
                         }
 
+                        // Imprimir la salida
+                        System.out.println("RECIBO DE EXAMEN");
+                        System.out.println("Examen: ");
+
+                        System.out.println();
 
 
 
